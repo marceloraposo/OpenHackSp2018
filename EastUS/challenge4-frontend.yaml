@@ -1,0 +1,48 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: svc-frontend
+  namespace: openhack
+spec:
+  selector:
+    app: openhack
+    tier: frontend
+  ports:
+  - protocol: "TCP"
+    port: 80
+    targetPort: 80
+  type: LoadBalancer
+---
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: challenge4-frontend
+  namespace: openhack
+spec:
+  selector:
+    matchLabels:
+      app: openhack
+      tier: frontend
+      track: stable
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: openhack
+        tier: frontend
+        track: stable
+    spec:
+      containers:
+      - name: frontend
+        image: team12.azurecr.io/frontend:latest
+#        imagePullPolicy: latest
+        resources:
+          limits:
+            memory: "512Mi"
+        env:
+        - name: BACKEND_HOST
+          value: "openhack"
+        ports:
+        - containerPort: 80
+      imagePullSecrets:
+      - name: secret-team12

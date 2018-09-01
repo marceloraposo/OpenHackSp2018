@@ -1,0 +1,10 @@
+# **** Conexão com a Storage ****
+apiVersion: v1
+kind: Secret
+metadata:
+  name: openhack
+  namespace: minecraft
+type: Opaque
+data:
+  azurestorageaccountname: dGVhbTEy
+  azurestorageaccountkey: WWU4UW1pYjgxRFEyNGZoeGc0ZGZraUhHSnErTVhPa21RYnVsT3RJUEw1UnhQMmh5MjgxZzZHTzRqcmFUSlJLWDVhRjY4UVpQbU9EdHFobEtRMytPQkE9PQ==

@@ -1,0 +1,45 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: svc-backend
+  namespace: openhack
+spec:
+  selector:
+    app: openhack
+    tier: backend
+  ports:
+  - protocol: "TCP"
+    port: 3000
+    targetPort: 3000
+  type: LoadBalancer
+---
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: challenge4-backend
+  namespace: openhack
+spec:
+  selector:
+    matchLabels:
+      app: openhack
+      tier: backend
+      track: stable
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: openhack
+        tier: backend
+        track: stable
+    spec:
+      containers:
+      - name: backend
+        image: team12.azurecr.io/backend:latest
+#        imagePullPolicy: latest
+        resources:
+          limits:
+            memory: "1024Mi"
+        ports:
+        - containerPort: 3000
+      imagePullSecrets:
+      - name: secret-team12

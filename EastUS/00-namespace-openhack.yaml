@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: openhack
+---
+# **** Conexão com o Registry Hub ****
+apiVersion: v1
+kind: Secret
+metadata:
+  name: secret-team12
+  namespace: openhack
+data:
+  .dockerconfigjson: eyJhdXRocyI6eyJ0ZWFtMTIuYXp1cmVjci5pbyI6eyJ1c2VybmFtZSI6InRlYW0xMiIsInBhc3N3b3JkIjoiQUh1MkVKTHh2cEY5eWFkaT1wazdQeHkwVnNudEJyUjAiLCJlbWFpbCI6InJhZmFlbC5sdXpAbGEubG9naWNhbGlzLmNvbSIsImF1dGgiOiJkR1ZoYlRFeU9rRklkVEpGU2t4NGRuQkdPWGxoWkdrOWNHczNVSGg1TUZaemJuUkNjbEl3In19fQ==
+type: kubernetes.io/dockerconfigjson

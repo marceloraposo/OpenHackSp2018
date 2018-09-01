@@ -1,0 +1,84 @@
+﻿@{
+    ViewBag.Title = "OpenHack - Team12 - Clusters";
+}
+
+<div class="card">
+    <div class="card-header">
+        <div class="row">
+            <div class="col-lg-8">
+                <h1>@ViewBag.Title</h1>
+            </div>
+            <div class="col-lg-4">
+                <button id="incluirCluster" class="btn btn-primary btn--icon-text f-right waves-effect" onclick="javascript:NovoCluster()"><i class="zmdi zmdi-plus"></i> Add</button>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="card-block">
+        <div class="table-responsive" id="telaCluster">
+
+        </div>
+    </div>
+</div>
+
+
+<!-- The Modal -->
+<div class="modal fade" id="modalCluster">
+    <div class="modal-dialog vertial-align-centered">
+        <div class="modal-content">
+
+            <!-- Modal Topo -->
+            <div class="modal-header">
+                <h4 class="modal-title">View</h4>
+                <button type="button" class="close" data-dismiss="modal" onclick="clearClusterTextBox();">&times;</button>
+            </div>
+
+            <!-- Modal Miolo -->
+            <div class="modal-body">
+                <div id="divFormCluster">
+                    <form>
+                        <div class="form-group">
+                            <label for="Nome">Name</label>
+                            <input type="text" class="form-control" id="Nome" placeholder="" />
+                        </div>
+                        <div class="form-group">
+                            <label id="lblCpu" for="Cpu">Telemetry(CPU)</label>
+                            <input type="text" class="form-control" id="Cpu" placeholder="Cpu" />
+                        </div>
+                        <div class="form-group">
+                            <label id="lblMemory" for="Memory">Telemetry(Memory)</label>
+                            <input type="text" class="form-control" id="Memory" placeholder="Memory" />
+                        </div>
+                        <div class="form-group">
+                            <label id="lblNode" for="Node">Telemetry(Node)</label>
+                            <input type="text" class="form-control" id="Node" placeholder="Node" />
+                        </div>
+                        <div class="form-group">
+                            <label id="lblMinecraft" for="Cpu">Endpoint(Minecraft)</label>
+                            <input type="text" class="form-control" id="Minecraft" placeholder="Minecraft" />
+                        </div>
+                        <div class="form-group">
+                            <label id="lblRcon" for="Memory">Endpoint(RCON)</label>
+                            <input type="text" class="form-control" id="Rcon" placeholder="Rcon" />
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Modal Rodapé -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" id="btnAdd" onclick="return AddCluster();">Save</button>
+                <button type="button" class="btn btn-primary" id="btnUpdate" style="display:none;" onclick="UpdateCluster();">Save</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal" onclick="clearClusterTextBox();">Close</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        loadDataCluster();
+    });
+</script>

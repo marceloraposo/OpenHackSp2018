@@ -1,0 +1,61 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - OpenHack</title>
+
+    <!-- Vendor styles -->
+    <link rel="stylesheet" href="~/Scripts/vendors/bower_components/material-design-iconic-font/dist/css/material-design-iconic-font.min.css">
+    <link rel="stylesheet" href="~/Scripts/vendors/bower_components/animate.css/animate.min.css">
+    <link rel="stylesheet" href="~/Scripts/vendors/bower_components/jquery.scrollbar/jquery.scrollbar.css">
+    <link rel="stylesheet" href="~/Scripts/vendors/bower_components/sweetalert2/dist/sweetalert2.min.css">
+
+    <script src="~/Scripts/vendors/bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="~/Scripts/vendors/bower_components/tether/dist/js/tether.min.js"></script>
+    <script src="~/Scripts/vendors/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="~/Scripts/vendors/bower_components/Waves/dist/waves.min.js"></script>
+    <script src="~/Scripts/vendors/bower_components/jquery.scrollbar/jquery.scrollbar.min.js"></script>
+    <script src="~/Scripts/vendors/bower_components/jquery-scrollLock/jquery-scrollLock.min.js"></script>
+    <script src="~/Scripts/vendors/bower_components/Waves/dist/waves.min.js"></script>
+
+    <link rel="stylesheet" href="~/Scripts/css/app.min.css">
+
+    <!-- ../vendors: Alert -->
+    <script src="~/Scripts/vendors/bower_components/sweetalert2/dist/sweetalert2.min.js"></script>
+
+    <script src="~/Scripts/vendors/bower_components/moment/2.22.2/moment.min.js"></script>
+
+    <!-- Vendors: Data tables -->
+    <script src="~/Scripts/vendors/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
+    <script src="~/Scripts/vendors/bower_components/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
+    <script src="~/Scripts/vendors/bower_components/datatables.net-buttons/js/buttons.print.min.js"></script>
+    <script src="~/Scripts/vendors/bower_components/jszip/dist/jszip.min.js"></script>
+    <script src="~/Scripts/vendors/bower_components/datatables.net-buttons/js/buttons.html5.min.js"></script>
+    <script src="~/Scripts/vendors/bower_components/datatable.net-select/js/dataTables.select.min.js"></script>
+    <script src="~/Scripts/vendors/bower_components/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+    <script src="~/Scripts/vendors/bower_components/datatable.net-colreorder/js/dataTables.colReorder.min.js"></script>
+    <link rel="stylesheet" href="~/Scripts/vendors/bower_components/datatable.net-colreorder/css/colReorder.dataTables.min.css">
+
+
+    <script src="~/Scripts/Cluster.js"></script>
+
+</head>
+<body>
+    <main class="main">
+        <!-- Loading -->
+        <div class="parallax">
+            <div class="overlay"></div>
+        </div>
+        <section class="content content--full">
+            <div class="content__inner">
+                @RenderBody()
+                <footer class="footer hidden-xs-down">
+                    <p id="footer"></p>
+                </footer>
+            </div>
+        </section>
+    </main>
+</body>
+</html>

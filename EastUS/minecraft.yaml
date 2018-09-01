@@ -1,0 +1,32 @@
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: minecraft-v2
+  namespace: minecraft
+spec:
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: minecraft
+    spec:
+      containers:
+      - name: minecraft-app
+        image: openhack/minecraft-server:2.0
+        imagePullPolicy: Always
+        resources:
+          limits:
+            memory: "2048Mi"
+        env:
+        - name: EULA
+          value: "TRUE"
+        ports:
+        - containerPort: 25565
+        - containerPort: 25575
+        volumeMounts:
+          - mountPath: /data
+            name: volume-minecraft
+      volumes:
+      - name: volume-minecraft
+        persistentVolumeClaim:
+          claimName: azurefile
