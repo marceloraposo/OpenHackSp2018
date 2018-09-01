@@ -1,0 +1,150 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OpenHack - Team12 - Clusters</title>
+
+    <!-- Vendor styles -->
+    <link rel="stylesheet" href="Scripts/vendors/bower_components/material-design-iconic-font/dist/css/material-design-iconic-font.min.css">
+    <link rel="stylesheet" href="Scripts/vendors/bower_components/animate.css/animate.min.css">
+    <link rel="stylesheet" href="Scripts/vendors/bower_components/jquery.scrollbar/jquery.scrollbar.css">
+    <link rel="stylesheet" href="Scripts/vendors/bower_components/sweetalert2/dist/sweetalert2.min.css">
+
+    <script src="Scripts/vendors/bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="Scripts/vendors/bower_components/tether/dist/js/tether.min.js"></script>
+    <script src="Scripts/vendors/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="Scripts/vendors/bower_components/Waves/dist/waves.min.js"></script>
+    <script src="Scripts/vendors/bower_components/jquery.scrollbar/jquery.scrollbar.min.js"></script>
+    <script src="Scripts/vendors/bower_components/jquery-scrollLock/jquery-scrollLock.min.js"></script>
+    <script src="Scripts/vendors/bower_components/Waves/dist/waves.min.js"></script>
+
+    <link rel="stylesheet" href="Scripts/css/app.min.css">
+
+    <!-- ../vendors: Alert -->
+    <script src="Scripts/vendors/bower_components/sweetalert2/dist/sweetalert2.min.js"></script>
+
+    <script src="Scripts/vendors/bower_components/moment/2.22.2/moment.min.js"></script>
+
+    <!-- Vendors: Data tables -->
+    <script src="Scripts/vendors/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
+    <script src="Scripts/vendors/bower_components/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
+    <script src="Scripts/vendors/bower_components/datatables.net-buttons/js/buttons.print.min.js"></script>
+    <script src="Scripts/vendors/bower_components/jszip/dist/jszip.min.js"></script>
+    <script src="Scripts/vendors/bower_components/datatables.net-buttons/js/buttons.html5.min.js"></script>
+    <script src="Scripts/vendors/bower_components/datatable.net-select/js/dataTables.select.min.js"></script>
+    <script src="Scripts/vendors/bower_components/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+    <script src="Scripts/vendors/bower_components/datatable.net-colreorder/js/dataTables.colReorder.min.js"></script>
+    <link rel="stylesheet" href="Scripts/vendors/bower_components/datatable.net-colreorder/css/colReorder.dataTables.min.css">
+
+
+    <script src="Scripts/Cluster.js"></script>
+
+</head>
+<body>
+    <main class="main">
+        <!-- Loading -->
+        <div class="parallax">
+            <div class="overlay"></div>
+        </div>
+        <section class="content content--full">
+            <div class="content__inner">
+
+			<!--Fonte -->
+			
+			
+		<div class="card">
+    <div class="card-header">
+        <div class="row">
+            <div class="col-lg-8">
+                <h1>OpenHack - Team12 - Clusters</h1>
+            </div>
+            <div class="col-lg-4">
+                <button id="incluirCluster" class="btn btn-primary btn--icon-text f-right waves-effect" onclick="javascript:NovoCluster()"><i class="zmdi zmdi-plus"></i> Add</button>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="card-block">
+        <div class="table-responsive" id="telaCluster">
+
+        </div>
+    </div>
+</div>
+
+
+<!-- The Modal -->
+<div class="modal fade" id="modalCluster">
+    <div class="modal-dialog vertial-align-centered">
+        <div class="modal-content">
+
+            <!-- Modal Topo -->
+            <div class="modal-header">
+                <h4 class="modal-title">View</h4>
+                <button type="button" class="close" data-dismiss="modal" onclick="clearClusterTextBox();">&times;</button>
+            </div>
+
+            <!-- Modal Miolo -->
+            <div class="modal-body">
+                <div id="divFormCluster">
+                    <form>
+                        <div class="form-group">
+                            <label for="Nome">Name</label>
+                            <input type="text" class="form-control" id="Nome" placeholder="" />
+                        </div>
+                        <div class="form-group">
+                            <label id="lblCpu" for="Cpu">Telemetry(CPU)</label>
+                            <input type="text" class="form-control" id="Cpu" placeholder="Cpu" />
+                        </div>
+                        <div class="form-group">
+                            <label id="lblMemory" for="Memory">Telemetry(Memory)</label>
+                            <input type="text" class="form-control" id="Memory" placeholder="Memory" />
+                        </div>
+                        <div class="form-group">
+                            <label id="lblNode" for="Node">Telemetry(Node)</label>
+                            <input type="text" class="form-control" id="Node" placeholder="Node" />
+                        </div>
+                        <div class="form-group">
+                            <label id="lblMinecraft" for="Cpu">Endpoint(Minecraft)</label>
+                            <input type="text" class="form-control" id="Minecraft" placeholder="Minecraft" />
+                        </div>
+                        <div class="form-group">
+                            <label id="lblRcon" for="Memory">Endpoint(RCON)</label>
+                            <input type="text" class="form-control" id="Rcon" placeholder="Rcon" />
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Modal Rodapé -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" id="btnAdd" onclick="return AddCluster();">Save</button>
+                <button type="button" class="btn btn-primary" id="btnUpdate" style="display:none;" onclick="UpdateCluster();">Save</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal" onclick="clearClusterTextBox();">Close</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        loadDataCluster();
+    });
+</script>	
+			
+			
+			<!-- Fim fonte --->
+			
+			
+			
+                <footer class="footer hidden-xs-down">
+                    <p id="footer"></p>
+                </footer>
+            </div>
+        </section>
+    </main>
+</body>
+</html>

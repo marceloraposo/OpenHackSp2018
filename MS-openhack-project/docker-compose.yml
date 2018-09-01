@@ -1,0 +1,25 @@
+version: '2'
+
+services:
+
+  # backend
+  backend:
+    build:
+      context: backend
+      dockerfile: Dockerfile
+    image: backend
+    container_name: backend
+    ports:
+      - 3000:3000
+
+  # nginx
+  web:
+    image: nginx:latest
+    container_name: nginx
+    environment:
+      BACKEND_HOST: localhost 
+    volumes:
+      - ./openhack.template:/etc/nginx/conf.d/openhack.template
+      - ./frontend:/usr/share/nginx/html
+    ports:
+      - "80:80"

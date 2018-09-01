@@ -1,0 +1,42 @@
+[
+  {
+    "name": "minecraft 1",
+    "endpoints": {
+      "minecraft": "111.111.111.111:0001",
+      "rcon": "111.111.111.111:1001"
+
+    },
+    "telemetry": {
+      "cpu": "247m",
+      "memory": "1846432Ki"
+    }
+
+  },
+  {
+    "name": "minecraft 2",
+    "endpoints": {
+      "minecraft": "222.222.222.222:0002",
+      "rcon": "222.222.222.222:2002"
+
+    },
+    "telemetry": {
+      "cpu": "247m",
+      "memory": "1846432Ki"
+    }
+
+  },
+  {
+    "name": "minecraft 3",
+    "endpoints": {
+      "minecraft": "333.333.333.333:0003",
+      "rcon": "333.333.333.333:3003"
+
+    },
+    "telemetry": {
+      "cpu": "247m",
+      "memory": "1846432Ki"
+    }
+
+
+  }
+]
